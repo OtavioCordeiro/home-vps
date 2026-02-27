@@ -11,6 +11,10 @@ RUN npm install
 # Copia o restante do código da aplicação
 COPY . .
 
+# URL pública do backend, definida em tempo de build via docker-compose
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
 # Constrói a aplicação para produção (gera a pasta 'dist')
 RUN npm run build
 

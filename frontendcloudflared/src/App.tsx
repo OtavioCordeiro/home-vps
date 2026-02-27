@@ -14,7 +14,7 @@ function App() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('/api/WeatherForecast', {
+    fetch('/api/v1/WeatherForecast', {
       headers: { accept: 'text/plain' },
     })
       .then((res) => {

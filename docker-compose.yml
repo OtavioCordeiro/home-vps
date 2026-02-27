@@ -1,0 +1,33 @@
+services:
+
+  api:
+    build:
+      context: ./BackEndCloudflared/BackEndCloudflared
+      dockerfile: Dockerfile
+    container_name: api
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5000
+
+  frontend:
+    build:
+      context: ./frontendcloudflared
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=https://minhafinanca.com
+    container_name: frontend
+    restart: unless-stopped
+    depends_on:
+      - api
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    volumes:
+      - ./caludflared:/etc/cloudflared
+    depends_on:
+      - api
+      - frontend
