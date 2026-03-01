@@ -27,7 +27,7 @@ services:
     restart: unless-stopped
     command: tunnel run
     volumes:
-      - ./claudflared:/etc/cloudflared
+      - ./cloudflared:/etc/cloudflared
     depends_on:
       - api
       - frontend
