@@ -1,5 +1,5 @@
-tunnel: 4a53b7be-1b17-44e0-846f-03882374e54b
-credentials-file: /etc/cloudflared/4a53b7be-1b17-44e0-846f-03882374e54b.json
+tunnel: aaa8de64-a202-450d-8695-74ec68117b3a
+credentials-file: /etc/cloudflared/aaa8de64-a202-450d-8695-74ec68117b3a.json
 
 ingress:
   - hostname: minhafinanca.com
